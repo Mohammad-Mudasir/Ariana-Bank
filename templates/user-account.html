@@ -1,0 +1,41 @@
+{% include 'header.html' %}
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+<div class="container">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <lable><strong>Name: </strong></lable>
+            {{current_user.name}}
+        </li>
+        <li class="list-group-item">
+            <lable><strong>Amount In Dollar: </strong></lable>
+            {{current_user.amount}}
+        </li>
+        <li class="list-group-item">
+            <lable><strong>Email: </strong></lable>
+            {{current_user.email}}
+        </li>
+        <li class="list-group-item">
+            <lable><strong>Total Transections: </strong></lable>
+            {{current_user.total_transection}}
+        </li>
+        <div class="container">
+            <lable>{{current_user.date}}</lable>
+        </div>
+        <br/>
+    </ul>
+    <div class="container">
+        <a href="{{ url_for('withdraw_or_deposit',user_id=current_user.id,status = 1) }}" class="btn btn-primary">
+            Deposit
+        </a>
+        <a href="{{ url_for('withdraw_or_deposit',user_id=current_user.id,status = 0) }}" class="btn btn-primary">
+            Withdraw
+        </a>
+    </div>
+</div>
+
+</body>
+{% include 'footer.html' %}
